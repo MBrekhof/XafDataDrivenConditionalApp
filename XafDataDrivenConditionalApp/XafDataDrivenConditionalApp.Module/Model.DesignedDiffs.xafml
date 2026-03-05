@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<Application Title="XafDataDrivenConditionalApp">
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <Views>
+    <DetailView Id="AppearanceRuleData_DetailView">
+      <Items>
+        <PropertyEditor Id="TargetItems" IsRequired="False" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <TabbedGroup Id="Tabs" RelativeSize="100">
+            <LayoutGroup Id="RuleDefinition" Caption="Rule Definition" Direction="Vertical" RelativeSize="100">
+              <LayoutGroup Id="RuleHeader" Caption="RuleHeader" Direction="Horizontal" RelativeSize="12" ShowCaption="False" Index="0">
+                <LayoutItem Id="Name" RelativeSize="50" Index="0" />
+                <LayoutItem Id="IsEnabled" RelativeSize="15" Index="1" />
+                <LayoutItem Id="Priority" RelativeSize="15" Index="2" />
+                <LayoutItem Id="ContextValue" RelativeSize="20" Index="3" />
+              </LayoutGroup>
+              <LayoutGroup Id="RuleTarget" Caption="RuleTarget" Direction="Horizontal" RelativeSize="12" ShowCaption="False" Index="1">
+                <LayoutItem Id="DataType" RelativeSize="50" Index="0" />
+                <LayoutItem Id="TargetItems" RelativeSize="50" Index="1" />
+              </LayoutGroup>
+              <LayoutItem Id="Criteria" RelativeSize="66" Index="2" />
+              <LayoutItem Id="UpdatedOnUtc" RelativeSize="10" Index="3" />
+            </LayoutGroup>
+            <LayoutGroup Id="Appearance" Caption="Appearance" Direction="Vertical" RelativeSize="100">
+              <LayoutGroup Id="AppearanceColors" Caption="Colors" Direction="Horizontal" RelativeSize="30">
+                <LayoutItem Id="BackColor" RelativeSize="50" />
+                <LayoutItem Id="FontColor" RelativeSize="50" />
+              </LayoutGroup>
+              <LayoutGroup Id="AppearanceStyle" Caption="Style" Direction="Horizontal" RelativeSize="30">
+                <LayoutItem Id="FontStyle" RelativeSize="50" />
+                <LayoutItem Id="Visibility" RelativeSize="50" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

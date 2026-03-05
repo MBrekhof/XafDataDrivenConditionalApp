@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="EasyTest" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Folder Name="/XafDataDrivenConditionalApp/">
+    <Project Path="XafDataDrivenConditionalApp/XafDataDrivenConditionalApp.Module.Tests/XafDataDrivenConditionalApp.Module.Tests.csproj">
+      <BuildType Solution="EasyTest|*" Project="Debug" />
+    </Project>
+  </Folder>
+  <Project Path="XafDataDrivenConditionalApp/XafDataDrivenConditionalApp.Blazor.Server/XafDataDrivenConditionalApp.Blazor.Server.csproj" />
+  <Project Path="XafDataDrivenConditionalApp/XafDataDrivenConditionalApp.Module/XafDataDrivenConditionalApp.Module.csproj" />
+  <Project Path="XafDataDrivenConditionalApp/XafDataDrivenConditionalApp.Win/XafDataDrivenConditionalApp.Win.csproj" />
+</Solution>
