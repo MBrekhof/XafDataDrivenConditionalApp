@@ -102,7 +102,7 @@ XafDataDrivenConditionalApp.Module/
 
 4. XAF's built-in engine then evaluates the criteria against each object, filters by context/target items, and applies the visual changes
 
-5. **`ConditionalAppearanceCacheController`** watches for rule saves and resets the appearance cache so changes take effect immediately
+5. **`ConditionalAppearanceCacheController`** watches for rule saves and notifies all active views — both the rule editor and any open target views (e.g. Customer, Order) reload their rules and reapply appearance immediately, without navigation or restart
 
 ## License
 

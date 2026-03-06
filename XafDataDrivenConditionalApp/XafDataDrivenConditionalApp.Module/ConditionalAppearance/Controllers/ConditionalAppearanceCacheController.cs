@@ -6,6 +6,8 @@ namespace XafDataDrivenConditionalApp.Module.ConditionalAppearance.Controllers;
 
 public sealed class ConditionalAppearanceCacheController : ObjectViewController<ObjectView, AppearanceRuleData>
 {
+    internal static event EventHandler RulesCommitted;
+
     protected override void OnActivated()
     {
         base.OnActivated();
@@ -26,5 +28,7 @@ public sealed class ConditionalAppearanceCacheController : ObjectViewController<
             appearanceController.ResetRulesCache();
             appearanceController.Refresh();
         }
+
+        RulesCommitted?.Invoke(this, EventArgs.Empty);
     }
 }

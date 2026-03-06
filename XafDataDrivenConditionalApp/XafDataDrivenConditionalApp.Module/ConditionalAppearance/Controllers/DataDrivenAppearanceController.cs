@@ -20,16 +20,16 @@ public sealed class DataDrivenAppearanceController : ViewController<ObjectView>
 
         cachedAdapters = LoadAdaptersForCurrentView();
 
-        if (cachedAdapters.Count > 0)
-        {
-            appearanceController.ResetRulesCache();
-            appearanceController.CollectAppearanceRules += OnCollectAppearanceRules;
-            appearanceController.Refresh();
-        }
+        appearanceController.ResetRulesCache();
+        appearanceController.CollectAppearanceRules += OnCollectAppearanceRules;
+        appearanceController.Refresh();
+
+        ConditionalAppearanceCacheController.RulesCommitted += OnRulesCommitted;
     }
 
     protected override void OnDeactivated()
     {
+        ConditionalAppearanceCacheController.RulesCommitted -= OnRulesCommitted;
         if (appearanceController is not null)
         {
             appearanceController.CollectAppearanceRules -= OnCollectAppearanceRules;
@@ -37,6 +37,16 @@ public sealed class DataDrivenAppearanceController : ViewController<ObjectView>
         }
         cachedAdapters = null;
         base.OnDeactivated();
+    }
+
+    private void OnRulesCommitted(object sender, EventArgs e)
+    {
+        if (appearanceController is null)
+            return;
+
+        cachedAdapters = LoadAdaptersForCurrentView();
+        appearanceController.ResetRulesCache();
+        appearanceController.Refresh();
     }
 
     private void OnCollectAppearanceRules(object sender, CollectAppearanceRulesEventArgs e)
